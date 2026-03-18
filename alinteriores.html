@@ -338,10 +338,6 @@
 
     .sobre-text p + p { margin-top: 1rem; }
 
-
-
-
-
     .sobre-clientes {
       margin-top: 2.5rem;
       padding-top: 2rem;
@@ -370,6 +366,133 @@
       border: 1px solid rgba(200,149,108,0.2);
       padding: 0.35rem 0.8rem;
       text-transform: uppercase;
+    }
+
+    /* ── SOBRE VISUAL PANEL ── */
+    .sobre-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sobre-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(200,149,108,0.08);
+      border: 1px solid rgba(200,149,108,0.12);
+    }
+
+    .sobre-stat-item {
+      padding: 2rem 1.8rem;
+      background: rgba(255,255,255,0.02);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .sobre-stat-item:hover { background: rgba(255,255,255,0.04); }
+
+    .sobre-stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .sobre-stat-item:hover::before { opacity: 1; }
+
+    .sobre-stat-item .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--gold-light);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .sobre-stat-item .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(232,201,160,0.5);
+      font-weight: 500;
+      display: block;
+    }
+
+    .sobre-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid rgba(200,149,108,0.12);
+    }
+
+    .sobre-pillar {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.2rem 1.8rem;
+      border-bottom: 1px solid rgba(200,149,108,0.08);
+      transition: background 0.3s;
+    }
+
+    .sobre-pillar:last-child { border-bottom: none; }
+    .sobre-pillar:hover { background: rgba(255,255,255,0.03); }
+
+    .pillar-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(201,146,42,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .pillar-text strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.15rem;
+    }
+
+    .pillar-text span {
+      font-size: 0.75rem;
+      color: rgba(200,149,108,0.5);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .sobre-quote {
+      padding: 1.8rem;
+      border-left: 3px solid var(--gold);
+      background: rgba(201,146,42,0.05);
+    }
+
+    .sobre-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(232,201,160,0.8);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .sobre-quote cite {
+      display: block;
+      margin-top: 0.8rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
     }
 
     @media (max-width: 900px) {
@@ -438,7 +561,6 @@
       color: var(--gold-light);
     }
 
-    /* Placeholder blocks for gallery */
     .gallery-placeholder {
       width: 100%;
       height: 100%;
@@ -706,7 +828,6 @@
       border-radius: 2px;
     }
 
-    /* image track */
     .carousel-track {
       position: relative;
       width: 100%;
@@ -734,7 +855,6 @@
 
     .carousel-slide:hover img { filter: brightness(1); }
 
-    /* gradient overlay */
     .carousel-track::after {
       content: '';
       position: absolute;
@@ -744,7 +864,6 @@
       z-index: 1;
     }
 
-    /* arrows */
     .carousel-arrow {
       position: absolute;
       top: 50%;
@@ -771,7 +890,6 @@
     .carousel-arrow.prev { left: 0.75rem; }
     .carousel-arrow.next { right: 0.75rem; }
 
-    /* dots */
     .carousel-dots {
       position: absolute;
       bottom: 4.5rem;
@@ -796,7 +914,6 @@
       transform: scale(1.4);
     }
 
-    /* card footer */
     .carousel-footer {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -1053,6 +1170,66 @@
         </div>
       </div>
     </div>
+
+    <!-- COLUNA DIREITA: PAINEL VISUAL -->
+    <div class="sobre-visual reveal">
+
+      <!-- Pilares da empresa -->
+      <div class="sobre-pillars">
+        <div class="sobre-pillar">
+          <div class="pillar-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Qualidade Garantida</strong>
+            <span>Materiais selecionados e acabamento premium em cada entrega</span>
+          </div>
+        </div>
+        <div class="sobre-pillar">
+          <div class="pillar-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Prazo Cumprido</strong>
+            <span>Planejamento rigoroso para entregas no tempo combinado</span>
+          </div>
+        </div>
+        <div class="sobre-pillar">
+          <div class="pillar-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Equipe Especializada</strong>
+            <span>Profissionais treinados e apaixonados pelo que fazem</span>
+          </div>
+        </div>
+        <div class="sobre-pillar">
+          <div class="pillar-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Excelência em Detalhes</strong>
+            <span>Cada projeto é único, tratado com atenção e cuidado total</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Citação -->
+      <div class="sobre-quote">
+        <p>"Cada projeto é uma parceria. Ouvimos, planejamos e entregamos com o orgulho de quem coloca o nome no trabalho."</p>
+        <cite>— Equipe Alinteriores</cite>
+      </div>
+
+    </div>
   </section>
 
   <!-- GALLERY -->
@@ -1064,13 +1241,13 @@
     <div class="gallery-grid">
 
       <div class="gallery-item">
-        <img class="gallery-img" src="images/showroom/showroom_corporativo.jpeg" alt="Showroom corporativo"/>
-        <div class="gallery-overlay"><span>Showroom Corporativo</span></div>
+        <img class="gallery-img" src="images/esquadrias/escritorio.jpg" alt="Showroom corporativo"/>
+        <div class="gallery-overlay"><span>Escritório</span></div>
       </div>
 
       <div class="gallery-item">
-        <img class="gallery-img" src="images/moveis/nicho_led.jpeg" alt="Nicho planejado com LED"/>
-        <div class="gallery-overlay"><span>Nicho com LED</span></div>
+        <img class="gallery-img" src="images/moveis/escada_aspiral2.jpg" alt="Escada de aspíral"/>
+        <div class="gallery-overlay"><span>Escada de Aspíral</span></div>
       </div>
 
       <div class="gallery-item">
@@ -1084,8 +1261,8 @@
       </div>
 
       <div class="gallery-item">
-        <img class="gallery-img" src="images/esquadrias/painel_metalico.jpeg" alt="Painel metálico geométrico"/>
-        <div class="gallery-overlay"><span>Painel Metálico</span></div>
+        <img class="gallery-img" src="images/esquadrias/FOTO MAISON MARINA 2.jpg" alt="Painel metálico geométrico"/>
+        <div class="gallery-overlay"><span>Fachada Edifício</span></div>
       </div>
 
       <div class="gallery-item">
@@ -1094,7 +1271,7 @@
       </div>
 
       <div class="gallery-item">
-        <img class="gallery-img" src="images/showroom/estante_new.jpeg" alt="Estante planejada"/>
+        <img class="gallery-img" src="images/moveis/estande_de_parede.jpg" alt="Estante planejada"/>
         <div class="gallery-overlay"><span>Estante Planejada</span></div>
       </div>
 
@@ -1187,7 +1364,7 @@
     </div>
   </section>
 
-      <!-- LIGHTBOX -->
+  <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <button class="lightbox-close" onclick="closeLightbox()">×</button>
     <img class="lightbox-img" id="lightbox-img" src="" alt=""/>
@@ -1294,7 +1471,6 @@
 
         carousels[id] = { current: 0, total: slides.length, paused: false };
 
-        // build dots
         slides.forEach((_, i) => {
           const dot = document.createElement('div');
           dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
@@ -1302,7 +1478,6 @@
           dotsEl.appendChild(dot);
         });
 
-        // click on track opens active slide in lightbox
         card.querySelector('.carousel-track').addEventListener('click', (e) => {
           if (e.target.classList.contains('carousel-arrow') || e.target.closest('.carousel-arrow')) return;
           if (e.target.classList.contains('carousel-dot') || e.target.closest('.carousel-dots')) return;
@@ -1311,12 +1486,10 @@
           if (img) openLightbox(img.src);
         });
 
-        // auto-advance every 3.5s
         carousels[id].timer = setInterval(() => {
           if (!carousels[id].paused) moveCarousel(id, 1, null);
         }, 3500);
 
-        // pause on hover
         card.addEventListener('mouseenter', () => carousels[id].paused = true);
         card.addEventListener('mouseleave', () => carousels[id].paused = false);
       });
@@ -1338,7 +1511,6 @@
       goToSlide(id, carousels[id].current + dir);
     }
 
-    // Lightbox
     function openLightbox(src) {
       const lb = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
@@ -1357,13 +1529,11 @@
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-    
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
